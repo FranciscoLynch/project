@@ -11,6 +11,6 @@ terraform {
 provider "aws" {}
 
 resource "aws_instance" "web" {
-  ami           = "ami-06aa3f7caf3a30282"
+  ami           = "ami-0fc5d935ebf8bc3bc"
   instance_type = "t2.micro"
 }
