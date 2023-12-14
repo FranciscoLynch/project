@@ -34,11 +34,6 @@ resource "aws_route_table" "main-route-table" {
     gateway_id = aws_internet_gateway.gw.id
   }
 
-  route {
-    ipv6_cidr_block        = "::/0"
-    egress_only_gateway_id = aws_internet_gateway.gw.id
-  }
-
   tags = {
     Name = "main-route-table"
   }
@@ -122,6 +117,7 @@ resource "aws_instance" "web" {
   ami           = "ami-0080974613cf1e8c7"
   instance_type = "t2.micro"
   availability_zone = "sa-east-1a"
+  key_name = "test"
 
   network_interface {
     network_interface_id = aws_network_interface.web-server-nic.id
